@@ -1,0 +1,5 @@
+**/results.json
+**/target/**/*
+**/bin/**/*
+**/obj/**/*
+.vscode

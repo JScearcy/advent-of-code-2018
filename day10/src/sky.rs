@@ -85,9 +85,8 @@ impl Sky {
     }
 
     pub fn write_to_file(&self, file: &mut File) {
-        let write_string = format!("{}", self);
+        let write_string = format!("{}\nMin Secs: {}", self, self.min_secs);
         file.write_all(write_string.as_bytes()).expect("couldn't write to results file");
-        println!("Min seconds: {}", self.min_secs);
     }
 
     fn get_stars_area(&self) -> (isize, isize, isize, isize, usize) {

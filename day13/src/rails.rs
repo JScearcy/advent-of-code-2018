@@ -49,7 +49,7 @@ impl Rails {
             let mut new_carts = BTreeMap::new();
             for (_point, cart) in &self.carts {
                 let mut new_cart = cart.clone();
-                if !new_carts.contains_key(&new_cart.location) {
+                if !new_carts.contains_key(&new_cart.location) || !remove_crashes {
                     let new_location = new_cart.tick(&self.rails);
                     let current_carts_contains_crash = self.carts.contains_key(&new_location);
                     let new_carts_contains_crash = new_carts.contains_key(&new_location);

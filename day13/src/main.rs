@@ -12,5 +12,5 @@ fn main() {
         .expect("couldn't read the input");
 
     let mut rails = Rails::new(&input_contents);
-    rails.ride_the_rails(true);
+    rails.ride_the_rails(false);
 }

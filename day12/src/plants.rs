@@ -67,7 +67,7 @@ impl<'a> Planter<'a> {
                 total += idx as isize - zero_index;
             }
         }
-        // println!("Broke Early: {}", broke_early);
+
         if let Some(file) = &mut self.output_file {
             let data = format!("{{ \"zeroIndex\": {}, \"end\": {}, \"value\":{} }}", left_index, right_index, total);
             file.write_all(data.as_bytes()).expect("could not write file");
@@ -103,8 +103,7 @@ impl<'a> Planter<'a> {
                 let new_state_char = *self.plant_patterns.get(&plant_pattern).unwrap();
                 new_state.push_back(new_state_char);
             } else {
-                new_state.push_back('.');
-                println!("Pushing '.', not found in states");
+                panic!("Pattern not found in states");
             }
         }
         let mut zero_shift = 2;

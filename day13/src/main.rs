@@ -10,6 +10,7 @@ fn main() {
     input_file
         .read_to_string(&mut input_contents)
         .expect("couldn't read the input");
-    let mut file = File::create("results.json").expect("couldn't create results file");
 
+    let mut rails = Rails::new(&input_contents);
+    rails.ride_the_rails(true);
 }
